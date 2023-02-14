@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import entities, { User } from './typeorm';
+import { CustomersModule } from './customers/customers.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -14,7 +15,7 @@ import entities, { User } from './typeorm';
     database:'classicmodels',
     entities:entities,
     synchronize:true,
-  })],
+  }), CustomersModule],
   controllers: [AppController],
   providers: [AppService],
 })
