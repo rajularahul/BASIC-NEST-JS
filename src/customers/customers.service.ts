@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreatecustomerDto } from './dto/Creatcustomer.dto';
+import { CreateCustomerDto } from './dto/Creatcustomer.dto';
 
 @Injectable()
 export class CustomersService {
@@ -28,7 +28,7 @@ export class CustomersService {
         return this.customers.find((customer) => customer.id===id);
     }
 
-    createCustomer(createcustomerDto: CreatecustomerDto){
+    createCustomer(createcustomerDto: CreateCustomerDto){
         this.customers.push(createcustomerDto)
     }
 
