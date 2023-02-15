@@ -1,8 +1,9 @@
 import { Body, Controller, Get, Param, Post, Req, Res } from '@nestjs/common';
-import { ParseIntPipe } from '@nestjs/common/pipes';
+import { ParseIntPipe, ValidationPipe } from '@nestjs/common/pipes';
 import { Request, Response } from 'express';
 import { CreateUserDto } from './dto/CreatUser.dto';
 import { CustomersService } from './customers.service';
+import { UsePipes } from '@nestjs/common/decorators';
 
 @Controller('customers')
 export class CustomersController {
@@ -24,6 +25,7 @@ export class CustomersController {
     }
 
     @Post('create')
+    @UsePipes(ValidationPipe)
     createUser(@Body() createUserDto:CreateUserDto){
         this.customerService.createCustomer(createUserDto);
     }
