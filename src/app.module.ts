@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import entities, { User } from './typeorm';
 import { CustomersModule } from './customers/customers.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -15,7 +16,7 @@ import { CustomersModule } from './customers/customers.module';
     database:'classicmodels',
     entities:entities,
     synchronize:true,
-  }), CustomersModule],
+  }), CustomersModule, UsersModule],
   controllers: [AppController],
   providers: [AppService],
 })
