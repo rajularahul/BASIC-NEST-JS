@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post, Req, Res } from '@nestjs/common';
 import { ParseIntPipe, ValidationPipe } from '@nestjs/common/pipes';
 import { Request, Response } from 'express';
-import { CreateUserDto } from './dto/CreatUser.dto';
+import { CreateCustomerDto } from './dto/CreatCustomer.dto';
 import { CustomersService } from './customers.service';
 import { UsePipes } from '@nestjs/common/decorators';
 
@@ -9,13 +9,13 @@ import { UsePipes } from '@nestjs/common/decorators';
 export class CustomersController {
     constructor(private customerService:CustomersService){}
     @Get('')
-    getUser(){
-        return this.customerService.findUser();
+    getcustomer(){
+        return this.customerService.findcustomer();
     }
 
     @Get(':id')
-    getUserById(@Param('id',ParseIntPipe) id:number,@Req() req:Request,@Res() res:Response){
-        var customer = this.customerService.findUserById(id);
+    getcustomerById(@Param('id',ParseIntPipe) id:number,@Req() req:Request,@Res() res:Response){
+        var customer = this.customerService.findcustomerById(id);
         if(customer){
             res.send(customer);
         }
@@ -26,8 +26,8 @@ export class CustomersController {
 
     @Post('create')
     @UsePipes(ValidationPipe)
-    createUser(@Body() createUserDto:CreateUserDto){
-        this.customerService.createCustomer(createUserDto);
+    createcustomer(@Body() createcustomerDto:CreateCustomerDto){
+        this.customerService.createCustomer(createcustomerDto);
     }
 
 }

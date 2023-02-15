@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/CreatUser.dto';
+import { CreatecustomerDto } from './dto/Creatcustomer.dto';
 
 @Injectable()
 export class CustomersService {
     
-    users=[{
+    customers=[{
         id:1,
         email:"rahul@gmail.com",
         name:"rahul",        
@@ -20,16 +20,16 @@ export class CustomersService {
         name:"rm",        
     }]
 
-    findUser(){
-        return this.users;
+    findcustomer(){
+        return this.customers;
     }
 
-    findUserById(id:number){
-        return this.users.find((user) => user.id===id);
+    findcustomerById(id:number){
+        return this.customers.find((customer) => customer.id===id);
     }
 
-    createCustomer(createUserDto: CreateUserDto){
-        this.users.push(createUserDto)
+    createCustomer(createcustomerDto: CreatecustomerDto){
+        this.customers.push(createcustomerDto)
     }
 
 }
