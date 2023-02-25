@@ -6,21 +6,22 @@ import { Entity } from "typeorm/decorator/entity/Entity";
 export class User{
     @PrimaryGeneratedColumn({
         type: 'bigint',
-        name: 'user_id',
+        name: 'user_id',        
     })
     id:number;
 
     @Column({
         name:'UserName',
         nullable:true,
+        unique:true,
     })
     username: string;
 
     @Column({
-        name:'EmailAddress',
+        name:'emailAddress',
         nullable:true,
     })
-    emailAddress: string;
+    email: string;
     
     @Column({
         name:'Password',   
