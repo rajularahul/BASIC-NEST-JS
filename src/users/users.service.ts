@@ -29,4 +29,10 @@ export class UsersService {
         const newUser = this.userRespository.create(createUserDto);
         return this.userRespository.save(newUser)
     }
+
+    async findUser(username:string){
+        return await this.userRespository.findOne({ where:{
+            username:username
+        } });
+    }
 }
